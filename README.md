@@ -19,7 +19,7 @@ I read a lot of text on a 14" 1920x1080 ThinkPad, and my eyesight is minus six. 
 - `looknfeel.lua`: window border 3px and rounding 0, as a block for `~/.config/hypr/looknfeel.lua`. Omarchy 4 configures Hyprland in Lua.
 - `hyprland-geometry.conf`: the same two settings in classic Hyprland syntax, if you are on a setup that still sources `.conf` files.
 
-`bin/omarchy-contrast-check` reads any Omarchy `colors.toml` and prints WCAG ratios for the pairs that matter (body, muted, accent, selection, the six status colours), with PASS, WARN and FAIL against the targets I used. It derives `selection_foreground` the way `omarchy-theme-color` actually does in 4.0.2, which is simply `bright_foreground`. It exits non-zero on any FAIL, so you can gate on it.
+So `bin/omarchy-contrast-check` reads any Omarchy `colors.toml` and prints WCAG ratios for the pairs that matter (body, muted, accent, selection, the six status colours), with PASS, WARN and FAIL against the targets I used. It derives `selection_foreground` the way `omarchy-theme-color` actually does in 4.0.2, which is simply `bright_foreground`. It exits non-zero on any FAIL, so you can gate on it.
 
 ```sh
 omarchy-contrast-check ~/.config/omarchy/themes/slate-signal-night/colors.toml
@@ -38,7 +38,7 @@ omarchy display text size 15
 omarchy theme set slate-signal-night
 ```
 
-If you already run a sunrise/sunset switcher, point it at `slate-signal-day` and `slate-signal-night` and you are done.
+And if you already run a sunrise/sunset switcher, point it at `slate-signal-day` and `slate-signal-night` and you are done.
 
 ## Status
 
