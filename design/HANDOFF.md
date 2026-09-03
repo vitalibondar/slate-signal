@@ -1,7 +1,7 @@
 # Slate Signal — Omarchy Day/Night theme pair · Claude Code handoff
 
 A matched, accessibility-first theme pair for a ThinkPad T14s Gen 1 (14" 1920x1080,
-restricted-gamut IPS) and a -6D user. Near-achromatic chassis, azure state identity,
+restricted-gamut IPS) and a short-sighted user. Near-achromatic chassis, azure state identity,
 luminance-led hierarchy, strong plain selection fill (no fragile per-app hacks).
 
 ## What's in this package

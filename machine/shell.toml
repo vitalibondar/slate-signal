@@ -6,7 +6,7 @@
 
 [font]
 # 12px default is ~5.6pt physical on 1920x1080 @ 14" (~157ppi). 15 is the
-# sweet spot for -6D; bump to 16 if 15 still strains. Do not go below 14.
+# sweet spot for a short-sighted reader; bump to 16 if 15 still strains. Do not go below 14.
 base-size = 15
 
 [spacing]

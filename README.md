@@ -9,7 +9,7 @@ The themes themselves are separate repos, because `omarchy theme install` wants 
 
 ## The idea
 
-I read a lot of text on a 14" 1920x1080 ThinkPad, and my eyesight is minus six. What I wanted was a desktop where the hierarchy is carried by lightness, one colour carries state, and a selected region is visible without hunting for it. Both themes use the same hues; only the lightness order flips. So if you switch by sunrise and sunset, the desktop feels like the same place at a different hour.
+I read a lot of text on a 14" 1920x1080 ThinkPad, and I am short-sighted, so the pair is tuned for eyes like mine first. What I wanted was a desktop where the hierarchy is carried by lightness, one colour carries state, and a selected region is visible without hunting for it. Both themes use the same hues; only the lightness order flips. So if you switch by sunrise and sunset, the desktop feels like the same place at a different hour.
 
 ## What is in here
 
@@ -46,4 +46,4 @@ Fresh as of 3 September 2026, verified against Omarchy 4.0.2. Previews for the t
 
 ## Credits
 
-The palette, the selection study and the override count were worked out in Claude Design against the real Omarchy templates, and the install was done with Claude Code. Wallpapers were generated with ChatGPT for this pair. MIT.
+The brief and every prompt came from ChatGPT (GPT-5.6). Claude Design executed them: the palette, the selection study and the override count, checked against the real Omarchy templates. Claude Code did the install. Wallpapers were generated with ChatGPT as well. MIT.
