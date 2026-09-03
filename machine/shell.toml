@@ -1,0 +1,34 @@
+# ~/.config/omarchy/shell.toml
+# MACHINE-LEVEL, THEME-INDEPENDENT. Outranks the active theme and is watched
+# live, so switching Slate Signal Day <-> Night never disturbs text size or
+# geometry. Nothing here references a theme color (a static file cannot), which
+# is exactly why it can stay constant across both themes.
+
+[font]
+# 12px default is ~5.6pt physical on 1920x1080 @ 14" (~157ppi). 15 is the
+# sweet spot for -6D; bump to 16 if 15 still strains. Do not go below 14.
+base-size = 15
+
+[spacing]
+scale = 1.05            # a hair of air, not a redesign
+scale-with-font = true  # control/popup/panel dims grow with base-size
+
+[bar]
+scale-with-font = true  # 26 -> ~32px at base 15: bigger tray targets,
+background-alpha = 1.0   # fewer accidental widget drags; never wallpaper-dependent
+
+[controls]
+# Focus must NOT read the same as hover. Hover stays a subtle fill; focus gets a
+# real 2px ring at full alpha. Kept as 'foreground' (not accent) on purpose:
+# a static machine file can't know the theme's accent, and a foreground ring is
+# high-contrast and theme-independent. (To tint it azure, move these four lines
+# into each theme's shell.toml — that is the ONLY reason you'd add a per-theme
+# override.)
+focus-border        = "foreground"
+focus-border-width  = 2
+focus-border-alpha  = 1.0
+focus-fill-alpha    = 0.06
+
+# Text-selection tint inside shell inputs is a touch stronger than the 0.35
+# default so a selected region is visible, not just its recolored text.
+selection-fill-alpha = 0.50
