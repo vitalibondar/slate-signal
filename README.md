@@ -15,7 +15,7 @@ I read a lot of text on a 14" 1920x1080 ThinkPad, and I am short-sighted, so the
 
 `machine/` holds the settings that should not move when the theme changes, because they are about your eyes and your panel, not about colour:
 
-- `shell.toml`: shell font base size 15, spacing scaled with the font, an opaque bar, a real 2px focus ring so focus never reads like hover, and a slightly stronger text selection in shell inputs. Goes to `~/.config/omarchy/shell.toml` and is picked up live.
+- `shell.toml`: shell font base size 14, spacing scaled with the font, a real 2px focus ring so focus never reads like hover, and a slightly stronger text selection in shell inputs. Goes to `~/.config/omarchy/shell.toml` and is picked up live. The bar alpha is not here: since 2026-09-04 each theme ships a `shell.bar.toml` (Day 0.5, Night 0.7) and the blur under the bar comes from `looknfeel.lua`.
 - `looknfeel.lua`: window border 3px and rounding 0, as a block for `~/.config/hypr/looknfeel.lua`. Omarchy 4 configures Hyprland in Lua.
 - `hyprland-geometry.conf`: the same two settings in classic Hyprland syntax, if you are on a setup that still sources `.conf` files.
 
@@ -34,7 +34,8 @@ omarchy theme install https://github.com/vitalibondar/omarchy-slate-signal-day-t
 omarchy theme install https://github.com/vitalibondar/omarchy-slate-signal-night-theme.git
 cp machine/shell.toml ~/.config/omarchy/shell.toml        # review first if you already have one
 # add the block from machine/looknfeel.lua to ~/.config/hypr/looknfeel.lua
-omarchy display text size 15
+omarchy display text size 14                              # even, so the display applet (steps of 2) can still move it
+gsettings set org.gnome.desktop.interface font-name 'Adwaita Sans 10'   # GTK ~1.1x the terminal instead of Omarchy's ~1.25x
 omarchy theme set slate-signal-night
 ```
 

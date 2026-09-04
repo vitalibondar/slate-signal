@@ -9,5 +9,17 @@ hl.config({
   },
   decoration = {
     rounding = 0,      -- square corners give each border its full length
+    -- 2026-09-04: the bar is translucent per theme (each theme ships a
+    -- shell.bar.toml: Day 0.5, Night 0.7). Blur is switched on only for the
+    -- omarchy-bar layer (layer_rule below); windows keep opacity 1.0.
+    blur = {
+      enabled = true,
+      size = 6,
+      passes = 2,
+    },
   },
 })
+
+-- Translucent bar: blur under the omarchy-bar layer so text stays readable
+-- over busy wallpapers; ignore_alpha keeps fully transparent pixels unblurred.
+hl.layer_rule({ match = { namespace = "omarchy-bar" }, blur = true, ignore_alpha = 0.2 })

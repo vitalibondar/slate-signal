@@ -5,17 +5,32 @@
 # is exactly why it can stay constant across both themes.
 
 [font]
-# 12px default is ~5.6pt physical on 1920x1080 @ 14" (~157ppi). 15 is the
-# sweet spot for a short-sighted reader; bump to 16 if 15 still strains. Do not go below 14.
-base-size = 15
+# 12px default is ~5.6pt physical on 1920x1080 @ 14" (~157ppi). Design said 15
+# (16 if it strains, never below 14). 2026-09-04 Vitalii settled on 14: an EVEN
+# value, so the Omarchy display applet (which steps by 2) can still move it.
+# Set through `omarchy display text size 14`, which also drives the terminal
+# (10.5pt -> rounds to 11pt) and GTK text-scaling-factor.
+#
+# Typography homogeneity (Vitalii 2026-09-04, "no more three text sizes"):
+# Omarchy's formula makes GTK ~1.25x the terminal. Fix that lives OUTSIDE this
+# file, in gsettings: interface font "Adwaita Sans 10" instead of the default
+# 11. The applet multiplies that base, so at 12/14/16 GTK stays ~1.1x the
+# terminal, like macOS (sans a touch larger than mono). Restore with:
+#   gsettings set org.gnome.desktop.interface font-name 'Adwaita Sans 10'
+# Only `omarchy font set` rewrites it.
+base-size = 14
 
 [spacing]
 scale = 1.05            # a hair of air, not a redesign
 scale-with-font = true  # control/popup/panel dims grow with base-size
 
 [bar]
-scale-with-font = true  # 26 -> ~32px at base 15: bigger tray targets,
-background-alpha = 1.0   # fewer accidental widget drags; never wallpaper-dependent
+scale-with-font = true  # 26 -> ~30px at base 14: bigger tray targets,
+                        # fewer accidental widget drags
+# background-alpha is NOT set here since 2026-09-04: a machine-level key would
+# win over both themes, and Vitalii wants Day more translucent than Night.
+# Each theme ships shell.bar.toml (Day 0.5, Night 0.7); Hyprland blur on the
+# omarchy-bar layer (looknfeel.lua) keeps text readable over busy wallpapers.
 
 [controls]
 # Focus must NOT read the same as hover. Hover stays a subtle fill; focus gets a
