@@ -1,27 +1,15 @@
-# Live-use notes, 2026-09-04 (first day on the themes)
+# Notes from the first day, 2026-09-04
 
-What moved after the handoff, and why. Values are the ones now in the repos.
+What moved after the handoff, and why. The values below are the ones in the repos now.
 
-## Bar: translucent per theme
-Vitalii's first live look: the wallpaper's own frame sits in the bar's tone, so an opaque
-bar read as an asymmetric frame (the bar is taller than the frame). Eight variants were
-compared live on Day (see `bar-transparency-contact-sheet.png`, V0 = handoff). Chosen: V2,
-alpha 0.5 on Day, 0.7 on Night, with Hyprland blur size 6 / passes 2 on the bar layer only.
-Rejected: heavy blur (distorts), no blur (flowers under the clock), fully transparent mode.
-Mechanism: each theme ships `shell.bar.toml`; Omarchy merges it into the generated
-`shell.toml`. The machine file no longer sets the alpha.
+## The bar went translucent, per theme
+On my first look at Day the wallpaper's own painted frame sat in the bar's tone, and the bar is taller than that frame. So the two together read as one lopsided frame. I compared eight variants live on Day; they are all on `bar-transparency-contact-sheet.png`, and V0 is the handoff. I kept V2: alpha 0.5 on Day and 0.7 on Night, with a light Hyprland blur under the bar only (size 6, passes 2). Heavy blur distorts the art, no blur leaves flowers under the clock, and the fully transparent mode does the same, so those three went out. Each theme carries its alpha in `shell.bar.toml`, and the machine file no longer sets it.
 
-## Typography: one scale, even numbers
-Omarchy's `display text size` couples bar, terminal and GTK, but its formula makes GTK
-~1.25x the terminal (at 15: bar 15px, terminal 11pt = 14.7px, GTK 14pt = 18.7px). That
-read as three unrelated sizes. Fix: text size 14 (even, so the display applet can still
-step it) plus GTK interface font `Adwaita Sans 10` instead of 11; the applet multiplies
-that base, so GTK stays ~1.1x the terminal at 12/14/16. Result at 14: bar 14px, terminal
-11pt = 14.7px, GTK 11.8pt = 15.8px.
+## One type scale, even numbers
+Omarchy's `display text size` moves the bar, the terminal and GTK together, but its formula makes GTK about 1.25x the terminal. At 15 that was bar 15px, terminal 11pt (14.7px), GTK 14pt (18.7px), and it read as three unrelated sizes on one screen. The fix is text size 14, which is even so the display applet can still step it, plus the GTK interface font at 10pt instead of 11. The applet multiplies that base, so GTK stays about 1.1x the terminal at 12, 14 or 16. At 14 it is bar 14px, terminal 11pt (14.7px), GTK 11.8pt (15.8px).
 
-## Wallpapers: 3840x2160
-The ChatGPT sources are 1672x941 and there is no larger original. Recraft "crisp upscale"
-(no regeneration) took them to 4096x2305, then Lanczos to 3840x2160. Creative upscale was
-tried and rejected: it redraws berries and flowers (`wallpaper-upscale-compare-3way.png`).
-Open question for the designer: the frame does not survive Omarchy's crop on 16:10, 3:2 or
-21:9 screens.
+## Wallpapers at 3840x2160
+The ChatGPT sources are 1672x941 and there is no larger original. A crisp, non-generative upscale took them to 4096x2305, then Lanczos down to 3840x2160. I also tried the creative upscale and rejected it: it redraws berries and flowers, see `wallpaper-upscale-compare-3way.png`.
+
+## The frame under crop
+Omarchy fills the screen and crops, so on a 16:10 or 3:2 panel the frame survives on two sides only. The designer's call, same day: the frame is decorative, not part of the theme's identity. On this 16:9 panel it stays as shipped. For other ratios a frameless master would be the better choice; the damask bleeds fine, the bouquet needs its frame and stays 16:9 only.

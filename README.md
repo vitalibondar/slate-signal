@@ -15,9 +15,9 @@ I read a lot of text on a 14" 1920x1080 ThinkPad, and I am short-sighted, so the
 
 `machine/` holds the settings that should not move when the theme changes, because they are about your eyes and your panel, not about colour:
 
-- `shell.toml`: shell font base size 14, spacing scaled with the font, a real 2px focus ring so focus never reads like hover, and a slightly stronger text selection in shell inputs. Goes to `~/.config/omarchy/shell.toml` and is picked up live. The bar alpha is not here: since 2026-09-04 each theme ships a `shell.bar.toml` (Day 0.5, Night 0.7) and the blur under the bar comes from `looknfeel.lua`.
-- `looknfeel.lua`: window border 3px and rounding 0, as a block for `~/.config/hypr/looknfeel.lua`. Omarchy 4 configures Hyprland in Lua.
-- `hyprland-geometry.conf`: the same two settings in classic Hyprland syntax, if you are on a setup that still sources `.conf` files.
+- `shell.toml`: shell font base size 14, spacing scaled with the font, a real 2px focus ring so focus never reads like hover, and a slightly stronger text selection in shell inputs. Goes to `~/.config/omarchy/shell.toml` and is picked up live. The bar's transparency is per theme (each theme ships a `shell.bar.toml`, Day 0.5 and Night 0.7), so it is deliberately absent here: this file would win over the theme.
+- `looknfeel.lua`: window border 3px, rounding 0, and a light blur under the bar only (size 6, passes 2), as a block for `~/.config/hypr/looknfeel.lua`. Omarchy 4 configures Hyprland in Lua.
+- `hyprland-geometry.conf`: the same settings in classic Hyprland syntax, if you are on a setup that still sources `.conf` files.
 
 So `bin/omarchy-contrast-check` reads any Omarchy `colors.toml` and prints WCAG ratios for the pairs that matter (body, muted, accent, selection, the six status colours), with PASS, WARN and FAIL against the targets I used. It derives `selection_foreground` the way `omarchy-theme-color` actually does in 4.0.2, which is simply `bright_foreground`. It exits non-zero on any FAIL, so you can gate on it.
 
@@ -25,7 +25,7 @@ So `bin/omarchy-contrast-check` reads any Omarchy `colors.toml` and prints WCAG 
 omarchy-contrast-check ~/.config/omarchy/themes/slate-signal-night/colors.toml
 ```
 
-`design/HANDOFF.md` is the implementation brief the themes were built from. `design/risk-geometry.md` is an optional idea that did not ship: a left "risk bar" on buttons for dangerous actions. It would need changes to the shell's own `Button.qml`, and that lives in `/usr/share/omarchy`, so it is an upstream conversation and not something a theme can carry.
+`design/HANDOFF.md` is the implementation brief the themes were built from, with the changes from the first day of use dated at the end. `design/2026-09-04/` has the notes and pictures behind those changes. `design/risk-geometry.md` is an optional idea that did not ship: a left "risk bar" on buttons for dangerous actions. It would need changes to the shell's own `Button.qml`, and that lives in `/usr/share/omarchy`, so it is an upstream conversation and not something a theme can carry.
 
 ## Applying the whole thing
 
@@ -43,7 +43,7 @@ And if you already run a sunrise/sunset switcher, point it at `slate-signal-day`
 
 ## Status
 
-Fresh as of 3 September 2026, verified against Omarchy 4.0.2. Previews for the theme switcher and the catalog are still to come. Feedback on how it reads on other panels is welcome; say which screen and which theme.
+Fresh as of 3 September 2026, verified against Omarchy 4.0.2. After the first day the bar went translucent, the text size settled at 14 with the GTK font at 10pt, and the wallpapers were upscaled to 3840x2160; the theme repos carry previews from that state. Feedback on how it reads on other panels is welcome; say which screen and which theme.
 
 ## Credits
 
