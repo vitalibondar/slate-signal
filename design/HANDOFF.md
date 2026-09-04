@@ -11,7 +11,7 @@ luminance-led hierarchy, strong plain selection fill (no fragile per-app hacks).
 | `themes/slate-signal-night/colors.toml` | Night theme palette | `~/.config/omarchy/themes/slate-signal-night/` |
 | `themes/slate-signal-day/backgrounds/`   | Day wallpapers (damask primary, bouquet companion). PART OF THE THEME | rides along with the theme dir |
 | `themes/slate-signal-night/backgrounds/` | Night wallpapers (damask primary, bouquet companion). PART OF THE THEME | rides along with the theme dir |
-| `themes/slate-signal-{day,night}/shell.toml` | Per-theme bar `background-alpha` (Day 0.5 / Night 0.7). The only per-theme shell key | rides along with the theme dir |
+| `themes/slate-signal-{day,night}/shell.bar.toml` | Per-theme bar section (carries `background-alpha` Day 0.5 / Night 0.7 plus the rest of `[bar]`). The only per-theme shell file | rides along with the theme dir |
 | `config/shell.toml`                     | Shared readability geometry (font 14, spacing, bar-alpha default, focus ring). THEME-INDEPENDENT except bar alpha | `~/.config/omarchy/shell.toml` |
 | `config/hyprland-geometry.conf`         | Border width 3 / rounding 0 / under-bar blur. THEME-INDEPENDENT | source from `~/.config/hypr/hyprland.conf` |
 | `bin/omarchy-contrast-check`            | Verifies every ratio in the brief on the real files | `~/.local/bin/` (chmod +x) |
@@ -113,7 +113,7 @@ preferred on non-16:9. See the wallpaper section.
   palette and selection is a palette value, so those still need no override - but
   as of 2026-09-04 the **bar `background-alpha` differs by theme** (Day 0.5,
   Night 0.7), and a machine file can't vary by theme, so each theme's
-  `shell.toml` now carries that one line. Nothing else is per-theme.
+  `shell.bar.toml` now carries that section. Nothing else is per-theme.
 - **Shared machine files (constant across Day & Night): 2** — `shell.toml`
   (font/spacing/bar/focus) and the Hyprland geometry snippet. Neither is a theme
   override; both are geometry/accessibility and must NOT change when you switch.
